@@ -1,0 +1,21 @@
+{
+  "name": "hide-partial-menu",
+  "title": "HidePartialMenu::general.title",
+  "version": "1.0.1",
+  "description": "HidePartialMenu::general.description",
+  "author": "LectWolf",
+  "namespace": "HidePartialMenu",
+  "require": {
+    "blessing-skin-server": "^5|^6"
+  },
+  "enchants": {
+    "config": "ConfigController",
+    "icon": {
+      "bg": "info",
+      "fa": "eye-slash"
+    }
+  },
+  "dependencies": {
+    "nanoid": "^3.1.10"
+  }
+}
