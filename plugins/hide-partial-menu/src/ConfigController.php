@@ -56,6 +56,8 @@ class ConfigController extends Controller
         $sideDisabledMenuConfig = json_decode(Option::get('hide-partial-menu.disable_side_menu','{}'),true);
         if(!isset($sideDisabledMenuConfig[$type])){
             $sideDisabledMenuConfig[$type] = [];
+        }elseif (!is_array($sideDisabledMenuConfig[$type])){
+            $sideDisabledMenuConfig[$type] = [$sideDisabledMenuConfig[$type]];
         }
 
         // 如果 disabled = true, 添加项目
@@ -65,7 +67,7 @@ class ConfigController extends Controller
                 $sideDisabledMenuConfig[$type][] = $value;
             }
         }else{
-            $sideDisabledMenuConfig[$type] = array_diff($sideDisabledMenuConfig[$type], [$value]);
+            $sideDisabledMenuConfig[$type] = array_values(array_diff($sideDisabledMenuConfig[$type], [$value]));
         }
 
         //保存更新后的$sideDisabledMenuConfig
